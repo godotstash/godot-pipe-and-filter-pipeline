@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wwk7x7h1wfxx"]
+
+[ext_resource type="Script" uid="uid://gw5laluf8v8d" path="res://3d_scenes/global_input_mouse_listener.gd" id="1_7mpag"]
+
+[node name="global_input_mouse_listener" type="Node3D"]
+script = ExtResource("1_7mpag")

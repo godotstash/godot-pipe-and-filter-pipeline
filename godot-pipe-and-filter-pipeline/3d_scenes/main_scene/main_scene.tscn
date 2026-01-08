@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://1bccasytx1xb"]
+
+[ext_resource type="PackedScene" uid="uid://wwk7x7h1wfxx" path="res://3d_scenes/global_input_mouse_listener.tscn" id="1_nelwx"]
+[ext_resource type="Script" uid="uid://b78lfw4wwdav0" path="res://3d_scenes/main_scene/boot_scene.gd" id="2_f4vkp"]
+[ext_resource type="Script" uid="uid://cixxy2fbha2ae" path="res://universal_scripts/sync_label_state.gd" id="3_5kcgc"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="global_input_mouse_listener" parent="." instance=ExtResource("1_nelwx")]
+
+[node name="boot_scene" type="Node3D" parent="."]
+script = ExtResource("2_f4vkp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="state_controls" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="state_labels" type="VBoxContainer" parent="CanvasLayer/state_controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="mouse_velocity_container" type="HBoxContainer" parent="CanvasLayer/state_controls/state_labels"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/state_controls/state_labels/mouse_velocity_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Left click Velocity:"
+
+[node name="label_value" type="Label" parent="CanvasLayer/state_controls/state_labels/mouse_velocity_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "0.0"
+script = ExtResource("3_5kcgc")
+key_name = "mouse_velocity"
+default_value = "0.0"
+
+[node name="mouse_position_container" type="HBoxContainer" parent="CanvasLayer/state_controls/state_labels"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/state_controls/state_labels/mouse_position_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Left click Position:"
+
+[node name="label_value" type="Label" parent="CanvasLayer/state_controls/state_labels/mouse_position_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "0.0"
+script = ExtResource("3_5kcgc")
+key_name = "mouse_position"
+default_value = "0.0"
+
+[node name="last_event_sender_container" type="HBoxContainer" parent="CanvasLayer/state_controls/state_labels"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/state_controls/state_labels/last_event_sender_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Last Sender:"
+
+[node name="label_value" type="Label" parent="CanvasLayer/state_controls/state_labels/last_event_sender_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "0.0"
+script = ExtResource("3_5kcgc")
+key_name = "sender"
+default_value = "Sender?"
