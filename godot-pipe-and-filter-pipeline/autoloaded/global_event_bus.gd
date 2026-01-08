@@ -1,6 +1,10 @@
 extends Node
 
 
+
+@warning_ignore("unused_signal")
+signal on_boot(pipeline_payload:Dictionary)
+
 @warning_ignore("unused_signal")
 signal sync_ui_state(pipeline_payload:Dictionary)
 

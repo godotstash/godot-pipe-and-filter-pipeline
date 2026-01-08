@@ -78,3 +78,11 @@ text = "0.0"
 script = ExtResource("3_5kcgc")
 key_name = "sender"
 default_value = "Sender?"
+
+[node name="next_video" type="HBoxContainer" parent="CanvasLayer/state_controls/state_labels"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/state_controls/state_labels/next_video"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "NEXT VIDEO: Lets move some objects using this pipeline"
